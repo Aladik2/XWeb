@@ -1,117 +1,133 @@
 ﻿<!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="utf-8" >
-    <title>Лабораторна 1</title>
+    <meta charset="utf-8" />
+    <title>Land Rover - Лабораторна 2</title>
+
+    <link rel="stylesheet" href="lab2C.css">
+
+    <style>
+        hr {
+            border: 1px solid #ccc;
+        }
+        a:hover {
+            color: green;
+        }
+    </style>
 </head>
 <body>
-    <h1>Лабораторна 1</h1>
+
+    <h1>Land Rover</h1>
     <hr>
 
-    <div>
-        <p><b>Зміст:</b></p>
-        <ul>
-            <li><a href="#punkt1">1. Теорема</a></li>
-            <li><a href="#punkt2">2. Структура ХНУРЕ</a></li>
-            <li><a href="#punkt3">3. Курс валют</a></li>
-            <li><a href="#punkt4">4. Голосування</a></li>
-        </ul>
-    </div>
-    <hr>
+    <nav>
+        <a href="#history">Історія</a>
+        <a href="#modern">Сучасні моделі</a>
+        <a href="#pink-lr">"Рожева Пантера"</a>
+        <a href="#range-rover">Range Rover</a>
+    </nav>
 
-    <p id="punkt1">
-        Для будь-якого натурального числа <b>n>2</b>
-        <br>рівняння <i>a<sup>n</sup> + b<sup>n</sup> = c<sup>n</sup></i>
-        <b>не має рішень</b> при
-        <br>цілих ненульових числах a, b, c.
-    </p>
+    <p>Land Rover - це легендарний британський виробник позашляховиків, відомий у всьому світі.</p>
 
-    <p id="punkt2"><b>Структура ХНУРЕ</b></p>
-
+    <h2>Ленд ровер - вибір:</h2>
     <ul>
-        <li>
-            Факультет комп’ютерних наук (КН)
-            <ul>
-                <li>Кафедра штучного інтелекту (ШІ) та інші</li>
-            </ul>
-        </li>
-        <li>
-            Факультет комп’ютерної інженерії та управління (КІУ)
-            <ul>
-                <li>Кафедра електронних обчислювальних машин (ЕОМ) та інші</li>
-            </ul>
-        </li>
-        <li>
-            Факультет автоматики і комп’ютеризованих технологій (АКТ)
-            <ul>
-                <li>Кафедра комп’ютерно-інтегрованих технологій, автоматизації та робототехніки (КІТАР) та інші</li>
-            </ul>
-        </li>
-        <li>
-            Факультет інформаційно-аналітичних технологій та менеджменту (ІТАМ)
-            <ul>
-                <li>Кафедра економічної кібернетики та управління фінансовою безпекою (ЕК) та інші</li>
-            </ul>
-        </li>
-        <li>
-            Факультет інфокомунікацій (ІК)
-            <ul>
-                <li>Кафедра інфокомунікаційної інженерії ім. В.В. Поповського (ІКІ) та інші</li>
-            </ul>
-        </li>
-        <li>
-            Факультет електронної та біомедичної інженерії (ЕЛБІ)
-            <ul>
-                <li>Кафедра біомедичної інженерії (БМІ) та інші</li>
-            </ul>
-        </li>
-        <li>
-            Факультет інформаційних радіотехнологій та технічного захисту інформації (ІРТЗІ)
-            <ul>
-                <li>Кафедра медіаінженерії та інформаційних радіоелектронних систем (МІРЕС) та інші</li>
-            </ul>
-        </li>
+        <li>Королів</li>
+        <li>Мандрівників</li>
+        <li>Військових</li>
     </ul>
 
-    <p id="punkt3"><b>Курс валют: ПриватБанк</b></p>
-    <table border="1">
-        <tr>
-            <th><b>ВАЛЮТА</b></th>
-            <th><b>КУПІВЛЯ</b></th>
-            <th><b>ПРОДАЖ</b></th>
-        </tr>
-        <tr>
-            <td>USD (Долар США)</td>
-            <td>41.60</td>
-            <td>42.20</td>
-        </tr>
-        <tr>
-            <td>EUR (Євро)</td>
-            <td>48.35</td>
-            <td>49.35</td>
-        </tr>
-        <tr>
-            <td>GBP (Фунт Стерлінгів)</td>
-            <td>55.20</td>
-            <td>56.55</td>
-        </tr>
-    </table>
+    <section id="history">
+        <h2>Історична справка</h2>
 
-    <div id="punkt4">
-        <p><b>Який процесор краще?</b></p>
+        <p style="font-style: italic;">
+            Ленд ровер з'явився після Другої світової, як
+            <span class="highlight">відповідь на потреби у переорієнтуванні виробництв</span>
+            на цивільний ринок та новому транспорті.
+        </p>
 
-        <form>
-            <input type="radio" id="intel" name="processor" value="Intel">
-            <label for="intel">Intel</label><br>
+        <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Land_Rover_Series_1_HT_%28cropped%29.jpg/1280px-Land_Rover_Series_1_HT_%28cropped%29.jpg" alt="Перший Land Rover" class="content-image">
+            <figcaption>Перший Land Rover</figcaption>
+        </figure>
+    </section>
 
-            <input type="radio" id="amd" name="processor" value="AMD">
-            <label for="amd">AMD</label><br>
+    <section id="modern">
+        <h2>Сучасний ленд ровер</h2>
+        <p>Сучасний ленд ровер - це позашляховик, який поєднує комфорт із чудовою прохідністю.</p>
 
-            <br>
+        <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Land_Rover_Defender_X_Dynamic_L663_Carpathian_Grey_%281%29.jpg/1200px-Land_Rover_Defender_X_Dynamic_L663_Carpathian_Grey_%281%29.jpg" alt="Сучасний Land Rover" class="content-image">
+            <figcaption>Сучасний Land Rover Defender</figcaption>
+        </figure>
+    </section>
 
-            <input type="submit" value="Проголосувати">
-        </form>
-    </div>
+    <section class="preferences">
+        <h2>Які авто вам більше до вподоби?</h2>
+
+        <div class="checkbox-group">
+
+            <div>
+                <input type="checkbox" id="opt1" name="car_pref">
+                <label for="opt1">Старий Land Rover (Series/Defender Classic)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="opt2" name="car_pref">
+                <label for="opt2">Новий Land Rover (Defender/Discovery)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="opt3" name="car_pref">
+                <label for="opt3">Старий Range Rover (Classic)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="opt4" name="car_pref">
+                <label for="opt4">Новий Range Rover</label>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="color-palette">
+        <h2>Фірмова палітра кольорів</h2>
+
+        <div class="flex-container-variant">
+
+            <div class="flex-item color-1">1. Army Green</div>
+            <div class="flex-item color-2">2. Camel</div>
+            <div class="flex-item color-3">3. Gondwana Stone</div>
+            <div class="flex-item color-4">4. Santorini Black</div>
+            <div class="flex-item color-5">5. Indus Silver</div>
+            <div class="flex-item color-6">6. Firenze Red</div>
+            <div class="flex-item color-7">7. Carpathian Grey</div>
+            <div class="flex-item color-8">8. Arles Blue</div>
+
+            <div class="flex-item item-wide color-9">9. British Racing Green</div>
+
+        </div>
+    </section>
+
+    <figure class="float-right-image" id="pink-lr">
+        <img src="https://silodrome.com/wp-content/uploads/2019/05/Series-2A-SAS-Land-Rover-Pink-Panther-1600x1200.jpg" alt="Рожевий Land Rover SAS" class="content-image">
+        <figcaption>"Рожева Пантера" SAS Авто яке використовував спецназ Британії</figcaption>
+    </figure>
+
+    <section id="range-rover">
+        <h2>Range Rover</h2>
+        <p>
+            В компанії Land Rover є також і преміальне авто Range Rover,
+            яке робить акцент на розкоші. Інтуїтивні технології. Підвищена продуктивність. Потужний двигун 530 к.с. Відмінна прохідність.
+            Строгий і виразний позашляховик.
+        </p>
+
+        <figure>
+            <img src="https://cms-assets.autoscout24.com/uaddx06iwzdz/7Ljkfe9cpCOZNMyyxIh91O/19503cb6de146c03bd8d2d939dacd412/land-rover-range-rover-front.jpg?w=1100" alt="Range Rover" class="content-image">
+            <figcaption>Преміальний Range Rover</figcaption>
+        </figure>
+    </section>
+
+    <img src="https://logomaster.com.ua/brand/lr.jpg" alt="Логотип Land Rover" id="fixed-logo">
 
 </body>
 </html>

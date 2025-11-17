@@ -1,0 +1,207 @@
+﻿/*базові стилі селектори тегів*/
+/* Застосовуємо до всієї сторінки */
+body {
+    font-family: Arial, sans-serif; /* шрифт для всього тексту */
+    line-height: 1.6; /* збільш міжрядковий інтервал */
+    background-color: #f9f9f9; /* дуже світло-сірий фон сторінки */
+    color: #333; /* темно-сірий колір для основного тексту */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center; /* головний заголовок по центру */
+    color: #2c3e50;
+}
+h2 {
+    color: #925c2e; /* коричневий відтінок підзаголовки */
+    border-bottom: 2px solid #eee; /* лінія під кожним h2 */
+}
+
+p {
+    margin: 15px; /*  відступи абзаців */
+}
+/* стилізація за класом  3 */
+.highlight {
+    background-color: brown;
+    color: white; /* білий текст на коричневому фоні */
+    padding: 2px 5px; /* маленькі відступи */
+}
+
+/* * картинки до всіх <img>
+ */
+.content-image {
+    max-width: 100%; /* картинки не будуть виходити за межі екрану */
+    height: auto; /* пропорції */
+    display: block; /* центрування через margin */
+    margin: 10px auto; /* відступи зверху/знизу та центрування по горизонталі */
+    border: 3px solid #ddd; /* світла рамка навколо фото */
+    border-radius: 5px; /* заокруглення кутів */
+}
+
+/* СТИЛІЗАЦІЯ НАВІГАЦІЇ селектори тегів*/
+
+nav {
+    text-align: center; /* центр блок навігації */
+    background-color: #f0f0f0; /* світлий фон меню */
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+    nav a {
+        margin: 0 15px; /* відступи між посиланнями */
+        text-decoration: none; 
+        color: #5a7d9a; /* синій колір */
+        font-weight: bold;
+    }
+
+        nav a:hover {
+            color: green; 
+        }
+/* демонстрація float */
+
+/* пантера */
+.float-right-image {
+    float: right; /* "елемент до правого краю */
+    width: 40%;
+    /* відступи */
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+/*  демонстрація position 4*/
+
+/* лого */
+#fixed-logo {
+    position: fixed;
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 70px;
+    height: auto;
+    border: none;
+    opacity: 0.7;
+}
+
+    /* лого ефект */
+    #fixed-logo:hover {
+        opacity: 1.0; 
+    }
+
+figure {
+    text-align: center; 
+}
+
+/* підписи */
+figcaption {
+    font-style: italic;
+    color: #555; 
+    font-size: 0.9em; 
+    margin-top: 5px;
+}
+
+/* виділення тексту*/
+::selection {
+    background-color: brown; /* Ваша ідея з коричневим фоном */
+    color: white; /* Білий текст на ньому */
+}
+
+/* фаєрфокс момент
+ */
+::-moz-selection {
+    background-color: brown;
+    color: white;
+}
+/* Контейнер для опитування */
+.preferences {
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+}
+
+/* Кожен рядок - блокм */
+.checkbox-group div {
+    display: block;
+    margin-bottom: 10px; 
+}
+
+.checkbox-group label {
+    cursor: pointer; 
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Коли <input> стає :checked */
+.checkbox-group input[type="checkbox"]:checked + label {
+    background-color: #fce8f0; /* світло-рожевий */
+    color: #c92c6d; /* темно-рожевий текст */
+    font-weight: bold; /* жир */
+    border-left: 5px solid #d14580; /* акцентна лінія */
+}
+/* Flexbox */
+.flex-container-variant {
+    display: flex; 
+    flex-wrap: wrap; /* перестрибування */
+    /* косметика */
+    border: 2px solid #ccc;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+}
+    .flex-container-variant .flex-item {
+        /* 100% / 8 = 12.5% */
+        flex-basis: 12.5%;
+        /* щоб padding/border не зламали розрахунок 12.5% */
+        box-sizing: border-box;
+        /* косметика */
+        height: 120px; 
+        padding: 10px;
+        border: 2px solid white; 
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+
+    .flex-container-variant .item-wide {
+        flex-basis: 100%;
+    }
+
+.color-1, .color-3, .color-4, .color-6, .color-7, .color-9 {
+    color: white;
+}
+
+.color-1 {
+    background-color: #4a543b;
+}
+/* Army Green */
+.color-2 {
+    background-color: #d2b48c;
+}
+/* Camel/Sand */
+.color-3 {
+    background-color: #8b8173;
+}
+/* Gondwana Stone */
+.color-4 {
+    background-color: #2a2a2a;
+}
+/* Santorini Black */
+.color-5 {
+    background-color: #c0c0c0;
+}
+/* Indus Silver */
+.color-6 {
+    background-color: #7c0a02;
+}
+/* Firenze Red */
+.color-7 {
+    background-color: #54585a;
+}
+/* Carpathian Grey */
+.color-8 {
+    background-color: #7ea6b4;
+}
+/* Arles Blue */
+.color-9 {
+    background-color: #014221;
+}
+/* British Racing Green */
