@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            transition: background-image 0.5s ease-in-out;
+            color: white; 
+            text-shadow: 1px 1px 2px black; /* тінь */
+            padding: 20px;
+        }
+        /* контейнери для розділення зон */
+        .section {
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.5); /* напівпрозора підкладка, щоб бачити текст */
+            padding: 15px;
+            display: inline-block; /* блоки займають стільки місця, скільки треба */
+        }
+        /* Слайдер*/
+        #slider-img {
+            width: 400px; 
+            height: 300px;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        /* стилі таблиці */
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+            color: black;
+            text-shadow: none;
+        }
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+        /* класи для шахівниці */
+        .black-cell {
+            background-color: black;
+            color: white;
+        }
+
+        .white-cell {
+            background-color: white;
+            color: black;
+        }
+        /* дефолт*/
+        input, button {
+            border-radius: 0; 
+            border: 1px solid gray;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        button {
+            cursor: pointer;
+            background-color: #ddd;
+            color: black;
+        }
+            button:hover {
+                background-color: #ccc;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h3>Керування фоном (День/Ніч)</h3>
+        <button onclick="setTheme('day')">ДЕНЬ</button>
+        <button onclick="setTheme('night')">НІЧ</button>
+    </div>
+
+    <br>
+
+    <div class="section">
+        <h3>Слайдер інструментів</h3>
+        <img id="slider-img" src="" alt="Слайд">
+    </div>
+
+    <br>
+
+    <div class="section">
+        <h3>Генерація таблиці</h3>
+        <div>
+            <label>Мін: <input type="number" id="min-val" value="1"></label>
+        </div>
+        <div>
+            <label>Макс: <input type="number" id="max-val" value="100"></label>
+        </div>
+        <button onclick="buildTable()">Побудувати таблицю</button>
+
+        <div id="table-container"></div>
+    </div>
+
+    <script>
+        // фон
+        const bgDay = "https://wallpaper-house.com/data/out/1/wallpaper2you_17678.png";
+        const bgNight = "https://preview.redd.it/mfv8bgzxbob81.png?auto=webp&s=aed327b2903de4f71d5b456f9639b9480fb24768";
+        function setTheme(mode) {
+            if (mode === 'day') {
+                document.body.style.backgroundImage = `url('${bgDay}')`;
+            } else {
+                document.body.style.backgroundImage = `url('${bgNight}')`;
+            }
+        }
+        // СЛАЙДЕР
+        const sliderImages = [
+            "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/40/Diamond_Axe_JE3_BE3.png/revision/latest/scale-to-width/360?cb=20200226193844",
+            "https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/26/Wooden_Shovel_JE2_BE2.png/revision/latest?cb=20200217234949",
+            "https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/cd/Wooden_Hoe_JE3_BE3.png/revision/latest?cb=20200226194121",
+            "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0f/Netherite_Sword_JE2_BE2.png/revision/latest?cb=20200304213920"
+        ];
+        let currentSlideIndex = 0;
+        const imgElement = document.getElementById('slider-img');
+        imgElement.src = sliderImages[0];
+        // загалом запуск
+        window.onload = function () {
+
+            const hour = new Date().getHours();
+            if (hour >= 6 && hour < 18) {
+                setTheme('day');
+            } else {
+                setTheme('night');
+            }
+            let interval = prompt("Введіть інтервал для зміни картинок у слайдері (мс):", "1000");
+            if (interval && !isNaN(interval)) {
+                interval = parseInt(interval);
+                // таймер
+                setInterval(() => {
+                    currentSlideIndex++;
+                    if (currentSlideIndex >= sliderImages.length) {
+                        currentSlideIndex = 0;
+                    }
+                    imgElement.src = sliderImages[currentSlideIndex];
+                }, interval);
+            }
+        };
+        // таблиця
+        function buildTable() {
+            const min = parseInt(document.getElementById('min-val').value);
+            const max = parseInt(document.getElementById('max-val').value);
+            const container = document.getElementById('table-container');
+            container.innerHTML = '';
+
+            if (min > max) {
+                alert("Мін > Макс!");
+                return;
+            }
+            const table = document.createElement('table');
+            for (let i = 0; i < 10; i++) {
+                const tr = document.createElement('tr');
+                for (let j = 0; j < 10; j++) {
+                    const td = document.createElement('td');
+                    // випадкове число
+                    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+                    td.textContent = randomNum;
+                    // шахівниця
+                    if ((i + j) % 2 === 0) {
+                        td.className = 'black-cell';
+                    } else {
+                        td.className = 'white-cell';
+                    }
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            container.appendChild(table);
+        }
+    </script>
+</body>
+</html>
