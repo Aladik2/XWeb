@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <title>Таймер JS</title>
+    <style>
+        body {
+            font-family: sans-serif; 
+            text-align: center;
+            background-color: white;
+            padding-top: 50px;
+        }
+
+        #timer-display {
+            font-size: 80px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333; 
+        }
+
+        .control-panel {
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: inline-block; 
+            border-radius: 10px;
+        }
+
+        .row {
+            margin-bottom: 15px;
+            text-align: left; 
+        }
+
+        label {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        input[type="number"], input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px; 
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #start-btn {
+            background-color: #28a745;
+        }
+            #start-btn:hover {
+                background-color: #218838;
+            }
+
+        #pause-btn {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        #stop-btn {
+            background-color: #dc3545;
+        }
+            #stop-btn:hover {
+                background-color: #c82333;
+            }
+    </style>
+</head>
+<body>
+
+    <h1>Онлайн Таймер</h1>
+
+    <div id="timer-display">00:10</div>
+
+    <div class="control-panel">
+
+        <div class="row">
+            <label>Час:</label>
+            <input type="number" id="input-minutes" value="0" min="0" style="width: 60px;"> хв.
+            <input type="number" id="input-seconds" value="10" min="0" max="59" style="width: 60px;"> сек.
+        </div>
+
+        <div class="row">
+            <label>Текст:</label>
+            <input type="text" id="input-message" value="Час вийшов!" style="width: 250px;">
+        </div>
+
+        <div class="row">
+            <label>
+                <input type="checkbox" id="check-loop">
+                Автоматичний перезапуск
+            </label>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="start-btn">Старт</button>
+            <button id="pause-btn">Пауза</button>
+            <button id="stop-btn">Скидання</button>
+        </div>
+
+    </div>
+
+    <script src="sIDZ1.js"></script>
+
+</body>
+</html>
