@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Диспетчер Таксі</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        .form-container {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: inline-block;
+        }
+
+        input {
+            padding: 8px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Панель диспетчера таксі</h2>
+
+    <div class="form-container">
+        <h3>Додати нову машину</h3>
+        <input type="text" id="number" placeholder="Номер (напр. AX3333CC)">
+        <input type="text" id="brand" placeholder="Марка авто">
+        <input type="text" id="driver" placeholder="ПІБ водія">
+        <button onclick="addTaxi()">Додати до парку</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Номер</th>
+                <th>Марка</th>
+                <th>Водій</th>
+                <th>Широта</th>
+                <th>Довгота</th>
+                <th>Дія</th>
+            </tr>
+        </thead>
+        <tbody id="taxi-table-body">
+        </tbody>
+    </table>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('updateTaxis', (taxis) => {
+        const tableBody = document.getElementById('taxi-table-body');
+        tableBody.innerHTML = ''; // Очищаємо таблицю перед оновленням
+
+        taxis.forEach(taxi => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td><strong>${taxi.number}</strong></td>
+        <td>${taxi.brand}</td>
+        <td>${taxi.driver}</td>
+        <td>${taxi.lat.toFixed(6)}</td>
+        <td>${taxi.lng.toFixed(6)}</td>
+        <td><button onclick="deleteTaxi('${taxi.number}')" style="background-color: #dc3545;">Видалити</button></td>
+        `;
+        tableBody.appendChild(row);
+        });
+        });
+
+        function addTaxi() {
+        const number = document.getElementById('number').value;
+        const brand = document.getElementById('brand').value;
+        const driver = document.getElementById('driver').value;
+
+        if (number && brand && driver) {
+        const newTaxi = { number, brand, driver };
+
+        socket.emit('addTaxi', newTaxi);
+
+        document.getElementById('number').value = '';
+        document.getElementById('brand').value = '';
+        document.getElementById('driver').value = '';
+        } else {
+        alert("Заповніть всі поля!");
+        }
+        }
+
+        function deleteTaxi(number) {
+        if (confirm(`Ви впевнені, що хочете видалити авто ${number}?`)) {
+        socket.emit('deleteTaxi', number);
+        }
+        }
+    </script>
+</body>
+</html>
